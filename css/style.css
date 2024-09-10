@@ -1,0 +1,104 @@
+header {
+    background-color: black;
+}
+
+
+body {
+    color: beige;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    font-size: larger;
+}
+
+
+h1 {
+    color: beige;
+}
+
+
+h2 {
+    color: black;
+}
+
+
+section {
+    box-sizing: border-box;
+    width: 50em;
+    height: 30em;
+    padding: 1em;
+    border: 1em;
+    margin: 1em;
+    background-color: beige;
+    color: black;
+}
+
+
+article {
+    box-sizing: border-box;
+    width: 50em;
+    height: 30em;
+    padding: 1em;
+    border: 1em;
+    margin: 1em;
+    background-color: black;
+    color: beige;
+
+}
+
+
+table {
+    background-color: black;
+    color: beige;
+}
+
+th {
+    width: 80vw;
+}
+
+.gamejamtable {
+    box-sizing: content-box;
+    width: 80vw;
+    height: 15vh;
+    padding: 2vw;
+    border: 1em solid gray;
+    margin: 1vw;
+}
+
+
+.gamepage {
+    box-sizing: content-box;
+    width: 100vw;
+    height: 100vh;
+    padding: 2vw;
+    margin: 0vw;
+    background-color: beige;
+    align-items: center;
+}
+
+
+.game {
+    display: flex; justify-content: space-between;
+    box-sizing: border-box;
+    width: 90vw;
+    height: 45vh;
+    padding: 1vw;
+    border: 1em solid gray;
+    margin: 1vw;
+    align-items: center;
+}
+
+.gameimg {
+    box-sizing: border-box;
+    width: 15vw;
+    height: 15vw;
+}
+
+
+nav {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 10vh;
+    border: 1em
+}
+
