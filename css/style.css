@@ -23,31 +23,18 @@ h2 {
 
 
 section {
+    align-items: center;
+    text-align: center;
     box-sizing: border-box;
-    width: 50em;
-    height: 30em;
-    padding: 1em;
-    border: 1em;
-    margin: 1em;
-    background-color: beige;
+    width: auto;
+    height: auto;
     color: black;
 }
 
 
-article {
-    box-sizing: border-box;
-    width: 50em;
-    height: 30em;
-    padding: 1em;
-    border: 1em;
-    margin: 1em;
-    background-color: black;
-    color: beige;
-
-}
-
-
 table {
+    box-sizing: border-box;
+    width: auto;
     background-color: black;
     color: beige;
 }
@@ -57,48 +44,99 @@ th {
 }
 
 .gamejamtable {
-    box-sizing: content-box;
-    width: 80vw;
-    height: 15vh;
-    padding: 2vw;
-    border: 1em solid gray;
-    margin: 1vw;
+    margin-left: 10em;
+    margin-right: 10em;
 }
 
 
 .gamepage {
-    box-sizing: content-box;
-    width: 100vw;
-    height: 100vh;
-    padding: 2vw;
-    margin: 0vw;
     background-color: beige;
     align-items: center;
+    text-align: left;
 }
 
 
 .game {
-    display: flex; justify-content: space-between;
-    box-sizing: border-box;
-    width: 90vw;
-    height: 45vh;
-    padding: 1vw;
-    border: 1em solid gray;
+    display: grid;
+    grid-template-columns: 2;
+    gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    box-sizing: content-box;
+    width: auto;
+    height: auto;
+    padding: vw;
+    border: solid black;
+    color: black;
     margin: 1vw;
     align-items: center;
 }
 
-.gameimg {
-    box-sizing: border-box;
-    width: 15vw;
-    height: 15vw;
+.one {
+    grid-column: 1;
+}
+
+.two {
+    grid-column: 2;
 }
 
 
 nav {
     box-sizing: border-box;
-    width: 100vw;
-    height: 10vh;
-    border: 1em
+    width: auto;
+    height: auto;
+    border: 1em;
+    font-size: x-large;
 }
 
+
+div {
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 80vw;
+    padding: 2em;
+    border: 2px solid beige;
+    margin: auto;
+    margin-top: 5em;
+}
+.form {
+    border-radius: 25px;
+    border: 2px solid beige;
+    padding: 2em;
+}
+
+
+div.form li {
+    padding: .5em;
+}
+
+
+input[type=text], input[type=textarea]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input[type=file], input[type=date] {
+    display: block;
+}
+  
+
+input[type=submit] {
+    width: 10%;
+    background-color: #f5f5dc;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #ebebdb;
+}
