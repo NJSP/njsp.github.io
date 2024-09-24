@@ -1,142 +1,142 @@
-header {
-    background-color: black;
-}
-
-
+/* General Styles */
 body {
-    color: beige;
-    background-color: black;
-    font-family: 'Courier New', Courier, monospace;
+    color: #f5f5f5;
+    background-color: #121212;
+    font-family: 'Roboto', sans-serif;
     text-align: left;
-    font-size: larger;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
-
-h1 {
-    color: beige;
+header {
+    background-color: #1f1f1f;
+    padding: 1em;
+    text-align: center;
 }
 
+h1, h2 {
+    color: #f5f5f5;
+    margin: 0.5em 0;
+}
 
 h2 {
-    color: black;
+    color: #bbbbbb;
 }
 
-
 section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    width: auto;
-    height: auto;
-    color: black;
+    width: 100%;
+    padding: 2em;
+    color: #f5f5f5;
 }
-
 
 table {
     box-sizing: border-box;
-    width: auto;
-    background-color: black;
-    color: beige;
+    width: 100%;
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    border-collapse: collapse;
+    margin: 2em 0;
+}
+
+th, td {
+    padding: 1em;
+    border: 1px solid #333;
 }
 
 th {
-    width: 80vw;
+    background-color: #333;
+    color: #f5f5f5;
 }
 
 .gamejamtable {
-    margin-left: 10em;
-    margin-right: 10em;
+    margin: 0 auto;
+    width: 80%;
 }
-
 
 .gamepage {
-    background-color: beige;
-    align-items: center;
-    text-align: left;
+    background-color: #f5f5f5;
+    color: #121212;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .game {
     display: grid;
-    grid-template-columns: 2;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    grid-auto-rows: minmax(100px, auto);
-    box-sizing: content-box;
-    width: auto;
-    height: auto;
-    padding: vw;
-    border: solid black;
-    color: black;
-    margin: 1vw;
-    align-items: center;
+    box-sizing: border-box;
+    padding: 1em;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    margin: 1em 0;
 }
-
-.one {
-    grid-column: 1;
-}
-
-.two {
-    grid-column: 2;
-}
-
 
 nav {
     box-sizing: border-box;
-    width: auto;
-    height: auto;
-    border: 1em;
-    font-size: x-large;
+    width: 100%;
+    padding: 1em;
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    text-align: center;
 }
-
 
 div {
     box-sizing: border-box;
-    border-radius: 25px;
-    width: 80vw;
+    border-radius: 8px;
+    width: 80%;
     padding: 2em;
-    border: 2px solid beige;
-    margin: auto;
-    margin-top: 5em;
-}
-.form {
-    border-radius: 25px;
-    border: 2px solid beige;
-    padding: 2em;
+    border: 2px solid #333;
+    margin: 2em auto;
+    background-color: #1f1f1f;
+    color: #f5f5f5;
 }
 
+.form {
+    border-radius: 8px;
+    border: 2px solid #333;
+    padding: 2em;
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+}
 
 div.form li {
-    padding: .5em;
+    padding: 0.5em;
 }
 
-
-input[type=text], input[type=textarea]{
-    width: 20%;
+input[type=text], input[type=textarea], input[type=file], input[type=date] {
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
     border-radius: 4px;
     box-sizing: border-box;
+    border: 1px solid #333;
+    background-color: #2c2c2c;
+    color: #f5f5f5;
 }
-
-
-input[type=file], input[type=date] {
-    display: block;
-}
-  
 
 input[type=submit] {
-    width: 10%;
-    background-color: #f5f5dc;
-    color: black;
+    width: 100%;
+    background-color: #333;
+    color: #f5f5f5;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-
 input[type=submit]:hover {
-    background-color: #ebebdb;
+    background-color: #444;
 }
