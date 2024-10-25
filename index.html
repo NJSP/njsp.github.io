@@ -1,99 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Comorbid Interactive</title>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJSP, Dev Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header style="text-align: center;">  
-        <img src="images/comorbid.png" alt="Comorbid Interactive" width="600" height="500">
-        <nav>
-            <table style="border: 1px solid;">
-                <tr>
-                    <th><a href="index.html" style="color: beige;">Home</a></th>
-                    <th><a href="games.html" style="color: beige;">Games</a></th>
-                    <th><a href="links.html" style="color: beige;">Links</a></th>
-                </tr>
-            </table>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>NJSP</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software</a></li>
+                    <li><a href="games.html">Games</a></li>
+                </ul>
+            </nav>
+            
+        </header>
+        <main>
+            <figure>
+            <img src="images/Nickolas J. Petrone.jpg" alt="Nickolas Petrone">
+            <figcaption>Nickolas J. Petrone, handsome devil and programming wizard</figcaption>
+            </figure>
+            <div class="about">
+                <h1>A little bit about me</h1>
+                <p>I'm a junior software engineer, transitioning U.S. Army veteran, indie game developer, and freelance AI trainer based out of the Seattle, WA area. I served in the army for just over 6 years as an all source military intelligence analyst, but my passion has always been computer programming and software development. I started self-teaching myself to code around the same time I joined the army back in 2018, but didn't develop my first serious project until March of 2024 when I participated in my first Game Jam.</p>
+                <br>
+                <p>The game was rough to say the least. It was a simple 3D third person "horror" game (the scariest thing about it was the litany of game-breaking bugs) but it was satisfying to see a project through to the end. It taught me a lot about managing scope and time to ensure that I could deliver a product that was at least playable. Since then, I've participated in a few more game jams, and have started working on a few more serious projects.</p>
+                <br>
+                <p>Feel free to peruse my portfolio to see some of the projects I've worked on, and if you're interested in working together, feel free to reach out to me via the contact information on the right side of the screen.</p>
+            </div>
+        </main>
+        <aside>
+            <div class="repositories">
+                <h2>Recent Project Updates</h2>
+                <table id="repo-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Repositories will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="contact">
+                <h2>Want to get in touch?</h2>
+                <ul>
+                    <li><a href="http://github.com/NJSP">GitHub</a></li>
+                    <li><a href="http://linkedin.com/in/nickolas-j-s-petrone">linkedin</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = 'NJSP';
+        const repoTableBody = document.getElementById('repo-table').getElementsByTagName('tbody')[0];
 
-<article class="home-grid">
+        fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(repo => {
+                    const lastCommitDate = new Date(repo.pushed_at).toLocaleDateString();
 
-<div class="about">
-    <h1>What is Comorbid Interactive?</h1>
-    <p>Comorbid Interactive is an independent game studio formed in 2024 by N.J. Petrone.
-    I like to focus on creating games with an emotional and cerebral impact that stick 
-    with players long after they step away from the keyboard.</p>
+                    const row = repoTableBody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const dateCell = row.insertCell(1);
 
-    <br>
-
-    <h1> Who is N.J. Petrone?</h1>
-    <p>I'm an aspiring software engineer and indie game developer.
-    I started my journey in game dev in March of 2024 when I decided I 
-    needed a break from studying for the Comptia Security+ exam. In 
-    retrospect I probably took years off my life by trying to learn the 
-    fundamentals of cybersecurity while also learning how to navigate 
-    Unreal Engine and program in Blueprints, but I guess I just like
-    to push myself.
-    I've linked my Github and Itch.io pages in the 'Links' Tab. 
-    Please feel free to check them out!</p>
-</div>
-
-<!--This table will eventually be set up to automatically update with future game jams.-->
-
-<section class="gamejamtable">
-    <table style="border: 5px solid;">
-    <br>
-        <tr>
-            <th colspan="3">Upcoming Game Jams</th>
-        </tr>
-        <tr>
-            <th>Jam Name</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
-        <tr>
-            <td>Scream Jam</td>
-            <td>Oct. 12</td>
-            <td>Oct. 22</td>
-        </tr>
-        <tr>
-            <td>GMTK Game Jam</td>
-            <td>Nov. 15</td>
-            <td>Nov. 22</td>
-        </tr>
-    </table>
-    <br>
-</section>
-
-
- <!--This is the form for receiving feedback. I have not yet set up form.php so it's just a placeholder.--> 
-<div class="form">
-    <h2 style="color: beige;">Want to get in touch?</h2>
-    <ul>
-        <form action="form.php" method="post">
-        <li><label for="firstlast">Name:</label>
-        <input type="text" name="fullname" id="firstlast"></li>
-        <li><label for="email">Email:</label>
-        <input type="text" name="email" id="email"></li>
-        <li><label for="birthdate">Birth Date:</label>
-        <input type="date" name="birthdate" id="birthdate"></li>
-        <li><label for="message">Message:</label>
-        <input type="textarea" name="message" id="message"></li>
-        <li><label for="box">Do you want to be notified of future developments?</label>
-        <input type="checkbox" name="box" id="box"></li>
-        <li><label for="file">Here you can upload any additional documents (GDDs, Portfolios, or Resumes)</label>
-        <input type="file" name="infile" id="filename"></li>
-        </form>
-    </ul>
-    <input type="submit" value="submit">
-</div>
-</article>
-
+                    nameCell.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+                    dateCell.textContent = lastCommitDate;
+                });
+            })
+            .catch(error => console.error('Error fetching repositories:', error));
+    });
+    </script>
 </body>
-
-
 </html>

@@ -1,142 +1,162 @@
-header {
-    background-color: black;
-}
-
-
 body {
-    color: beige;
-    background-color: black;
+    display: flex;
     font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    font-size: larger;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-h1 {
-    color: beige;
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-
-h2 {
-    color: black;
-}
-
-
-section {
-    align-items: center;
+header, footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    color: black;
-}
-
-
-table {
-    box-sizing: border-box;
-    width: auto;
-    background-color: black;
-    color: beige;
-}
-
-th {
-    width: 80vw;
-}
-
-.gamejamtable {
-    margin-left: 10em;
-    margin-right: 10em;
-}
-
-
-.gamepage {
-    background-color: beige;
-    align-items: center;
-    text-align: left;
-}
-
-
-.game {
-    display: grid;
-    grid-template-columns: 2;
-    gap: 20px;
-    grid-auto-rows: minmax(100px, auto);
-    box-sizing: content-box;
-    width: auto;
-    height: auto;
-    padding: vw;
-    border: solid black;
-    color: black;
-    margin: 1vw;
-    align-items: center;
-}
-
-.one {
-    grid-column: 1;
-}
-
-.two {
-    grid-column: 2;
-}
-
-
-nav {
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    border: 1em;
-    font-size: x-large;
-}
-
-
-div {
-    box-sizing: border-box;
-    border-radius: 25px;
-    width: 80vw;
-    padding: 2em;
-    border: 2px solid beige;
-    margin: auto;
-    margin-top: 5em;
-}
-.form {
-    border-radius: 25px;
-    border: 2px solid beige;
-    padding: 2em;
-}
-
-
-div.form li {
     padding: .5em;
 }
 
-
-input[type=text], input[type=textarea]{
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border-radius: 4px;
-    box-sizing: border-box;
+nav {
+    display: flex;
 }
 
-
-input[type=file], input[type=date] {
-    display: block;
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: larger;
 }
-  
 
-input[type=submit] {
-    width: 10%;
-    background-color: #f5f5dc;
+li {
+    padding: 1em;
+    text-align: left;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+a:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+main {
+    flex: 1;
+    padding: 1em;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 1em 0;
     color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+.contact a {
+    color: black;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+.contact a:hover {
+    background-color: #f4f4f4;
+    color: gray;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    max-width: 500px;
+    margin: auto;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: darkgray;
+    padding: 3px;
+    font-size: smaller;
+}
+
+.software a {
+    color: black;
+}
+
+.software dd {
+    padding: 1em;
+}
+
+.software a {
+    text-decoration: underline;
+    text-underline-offset: 8px;
 }
 
 
-input[type=submit]:hover {
-    background-color: #ebebdb;
+
+/* ---- Table Stylings ---- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+table a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.repositories {
+    overflow-x: auto;
+}
+
+/* ---- Media Queries ---- */
+
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row;
+    }
+
+    main {
+        flex: 3;
+    }
+
+    aside {
+        flex: 1;
+        background-color: #f4f4f4;
+        padding: 1em;
+    }
 }

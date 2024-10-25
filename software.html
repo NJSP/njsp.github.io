@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJSP/Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NJSP</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software</a></li>
+                    <li><a href="games.html">Games</a></li>
+                </ul>
+            </nav>
+            
+        </header>
+        <main>
+            <div class="software">
+                <figure>
+                <img src="images/space-tigers-pic.jpg" alt="Space-Tigers Web Application" >
+                <figcaption>Space-Tigers, a web application built using the Django framework</figcaption>
+                </figure>
+                <h1>Software Projects</h1>
+                <p>Below are some of the software projects I've worked on. Most of my previous projects are written in Python, but I'm currently working  on more
+                projects in C#. I'll be updating this site with future projects as I go.</p>
+                <br>
+                <ul>
+                    <li>
+                        <h2>Python Projects</h2>
+                        <ul id="python-projects">
+                                <!-- Python projects will be populated here -->
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>C# Projects</h2>
+                        <ul id="csharp-projects">
+                            <!-- C# projects will be populated here -->
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Other Projects</h2>
+                        <ul id="other-projects">
+                            <!-- Other projects will be populated here -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <aside>
+        <div class="repositories">
+            <h2>Recent Project Updates</h2>
+            <table id="repo-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Repositories will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="contact">
+            <h2>Want to get in touch?</h2>
+            <ul>
+                <li><a href="http://github.com/NJSP">GitHub</a></li>
+                <li><a href="http://linkedin.com/in/nickolas-j-s-petrone">linkedin</a></li>
+            </ul>
+        </div>
+    </aside>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = 'NJSP';
+        const repoTableBody = document.getElementById('repo-table').getElementsByTagName('tbody')[0];
+        const pythonProjectsList = document.getElementById('python-projects');
+        const csharpProjectsList = document.getElementById('csharp-projects');
+        const otherProjectsList = document.getElementById('other-projects');
+        
+        fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(repo => {
+                    const listItem = document.createElement('li');
+                    const projectLink = document.createElement('a');
+                    projectLink.href = repo.html_url;
+                    projectLink.target = '_blank';
+                    projectLink.innerHTML = `<strong>${repo.name}</strong>`;
+
+                    const projectDescription = document.createElement('p');
+                    projectDescription.textContent = repo.description || 'No description available.';
+                    
+                    listItem.appendChild(projectLink);
+                    listItem.appendChild(projectDescription);
+
+                    if (repo.language === 'Python') {
+                        pythonProjectsList.appendChild(listItem);
+                    } else if (repo.language === 'C#') {
+                        csharpProjectsList.appendChild(listItem);
+                    } else {
+                        otherProjectsList.appendChild(listItem);
+                    }
+
+                    const lastCommitDate = new Date(repo.pushed_at).toLocaleDateString();
+
+                    const row = repoTableBody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const dateCell = row.insertCell(1);
+
+                    nameCell.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+                    dateCell.textContent = lastCommitDate;
+                });
+            })
+            .catch(error => console.error('Error fetching repositories:', error));
+    });
+    </script>
+</body>
+</html>
